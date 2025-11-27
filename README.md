@@ -1,29 +1,37 @@
 # Análise Experimental de Tabela Hash (Encadeamento Separado)
 
-Este projeto implementa uma Tabela Hash utilizando a estratégia de **tratamento de colisão por encadeamento separado** (Separate Chaining). O código foi desenvolvido em Java puro ("Java Básico"), sem a utilização de frameworks, coleções prontas (como `java.util.HashMap` ou `ArrayList`) ou tratamento de exceções, conforme os requisitos rigorosos da disciplina.
+Este repositório contém a implementação de uma **Tabela Hash com tratamento de colisão por Encadeamento Separado** (Separate Chaining).
 
-O objetivo é comparar o desempenho de diferentes funções de hash e analisar o impacto do fator de carga no tempo de execução e no número de colisões.
+O projeto foi desenvolvido em **Java puro** ("Java Básico"), seguindo rigorosamente as restrições da disciplina:
+- 🚫 **Sem uso de Collections** (`HashMap`, `ArrayList`, `LinkedList`, etc.).
+- 🚫 **Sem tratamento de exceções** (`try-catch` ou `throws`).
+- 🚫 **Sem bibliotecas externas** (apenas `java.lang` e `java.util.Random`).
+- ✅ **Implementação manual** da lista encadeada e da estrutura de nós.
 
-## 📋 Funcionalidades
+O objetivo é analisar empiricamente o desempenho de diferentes funções de hashing sob variados fatores de carga.
 
-O experimento executa testes automatizados variando:
-* **3 Tamanhos de Tabela ($M$):** 1009, 10007, 100003 (números primos).
-* **3 Funções de Hash:**
-    * `H_DIV`: Método da Divisão (Resto).
-    * `H_MUL`: Método da Multiplicação (com constante A ≈ 0.618).
-    * `H_FOLD`: Método do Dobramento (soma de blocos de 3 dígitos).
-* **3 Tamanhos de Dataset ($N$):** 1.000, 10.000 e 100.000 chaves inteiras.
-* **3 Sementes (Seeds):** Para garantir a reprodutibilidade dos números aleatórios.
+## 📋 Funcionalidades Implementadas
 
-## 🚀 Como Compilar e Executar
+O experimento executa automaticamente 81 combinações de testes (3 tamanhos de tabela × 3 funções × 3 tamanhos de dados × 3 seeds), coletando métricas precisas de tempo e colisões.
 
-Como o projeto não utiliza gerenciadores de dependência (Maven/Gradle) e consiste em um único arquivo fonte, a compilação é feita via terminal.
+### Parâmetros do Experimento
+* **Tamanhos da Tabela ($M$):** 1009, 10007, 100003 (Números primos para minimizar colisões).
+* **Funções de Hash:**
+    1.  `H_DIV`: Método da Divisão (Resto).
+    2.  `H_MUL`: Método da Multiplicação (constante A ≈ 0.618).
+    3.  `H_FOLD`: Método do Dobramento (soma de blocos de 3 dígitos).
+* **Datasets ($N$):** 1.000, 10.000 e 100.000 chaves inteiras.
+* **Reprodutibilidade:** Uso de sementes fixas (137, 271828, 314159).
+
+## 🚀 Como Executar o Projeto
+
+Como o projeto não utiliza ferramentas de build (Maven/Gradle), a execução é feita via linha de comando.
 
 ### Pré-requisitos
 * Java JDK 8 ou superior instalado.
 
-### Passo 1: Compilação
-Abra o terminal na pasta do projeto e execute:
+### 1. Compilação
+Abra o terminal na pasta do arquivo e execute:
 
 ```bash
 javac TabelaHashExperimento.java
