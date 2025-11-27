@@ -3,14 +3,14 @@
 Este repositório contém a implementação de uma **Tabela Hash com tratamento de colisão por Encadeamento Separado** (Separate Chaining).
 
 O projeto foi desenvolvido em **Java puro** ("Java Básico"), seguindo rigorosamente as restrições da disciplina:
-- 🚫 **Sem uso de Collections** (`HashMap`, `ArrayList`, `LinkedList`, etc.).
-- 🚫 **Sem tratamento de exceções** (`try-catch` ou `throws`).
-- 🚫 **Sem bibliotecas externas** (apenas `java.lang` e `java.util.Random`).
-- ✅ **Implementação manual** da lista encadeada e da estrutura de nós.
+- **Sem uso de Collections** (`HashMap`, `ArrayList`, `LinkedList`, etc.).
+- **Sem tratamento de exceções** (`try-catch` ou `throws`).
+- **Sem bibliotecas externas** (apenas `java.lang` e `java.util.Random`).
+- **Implementação manual** da lista encadeada e da estrutura de nós.
 
 O objetivo é analisar empiricamente o desempenho de diferentes funções de hashing sob variados fatores de carga.
 
-## 📋 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 O experimento executa automaticamente 81 combinações de testes (3 tamanhos de tabela × 3 funções × 3 tamanhos de dados × 3 seeds), coletando métricas precisas de tempo e colisões.
 
